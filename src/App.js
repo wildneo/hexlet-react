@@ -1,17 +1,12 @@
 import React from 'react';
-import Definitions from './Definitions/Definitions';
+import Alert from './Alert/Alert';
 import './App.css';
 // import logo from './logo.svg';
 
-const definitions = [
-  { dd: 'one', dt: 'two' },
-  { dd: 'another term', dt: 'another description' },
-];
-
 function App() {
   return (
-    <div id="container" class="container m-3">
-      <Definitions data={definitions}/>
+    <div id="container" className="container m-3">
+      <Alert type="warning" text="what is love?" />
     </div>
   );
 }
