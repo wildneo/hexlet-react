@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert 1 1`] = `
+<div
+  className="alert alert-danger"
+  role="alert"
+>
+  text 1
+</div>
+`;
+
+exports[`Alert 2 1`] = `
+<div
+  className="alert alert-dark"
+  role="alert"
+>
+  text 2
+</div>
+`;
