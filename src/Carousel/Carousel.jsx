@@ -1,46 +1,46 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import cn from 'classnames';
 
 export default class Carousele extends React.Component {
   constructor(props) {
     super(props);
-    const maxIndex = props.images.length;
-    this.state = {
-      active: 0,
-      maxIndex,
+    this.state = { current: 0 };
+
+    this.next = (event) => {
+      event.preventDefault();
+      const { current } = this.state;
+      const { images } = this.props;
+      this.setState({ current: (current + 1) % images.length });
     };
-
-    this.next = () => this.increment();
-    this.prev = () => this.decrement();
+    this.prev = (event) => {
+      event.preventDefault();
+      const { current } = this.state;
+      const { images } = this.props;
+      this.setState({ current: current === 0 ? images.length - 1 : current - 1 });
+    };
   }
 
-  increment() {
-    const { active, maxIndex } = this.state;
-    this.setState({ active: (active + 1) % maxIndex });
-  }
-
-  decrement() {
-    const { active, maxIndex } = this.state;
-    this.setState({ active: active === 0 ? maxIndex - 1 : (active - 1) });
-  }
-
-  render() {
+  renderSlides() {
     const { images } = this.props;
 
-    const process = (image, key) => {
-      const { active } = this.state;
-      const style = cn('carousel-item', { active: active === key });
+    return images.map((image, index) => {
+      const { current } = this.state;
+      const style = cn('carousel-item', { active: index === current });
+
       return (
-        <div key={key} className={style}>
+        <div key={image} className={style}>
           <img alt="" className="d-block w-100" src={image} />
         </div>
       );
-    };
+    });
+  }
 
+  render() {
     return (
       <div id="carousel" className="carousel slide" data-ride="carousel">
-        <div className="carousel-inner">{images.map(process)}</div>
+        <div className="carousel-inner">
+          {this.renderSlides()}
+        </div>
         <a onClick={this.prev} className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
           <span className="carousel-control-prev-icon" />
           <span className="sr-only">Previous</span>
