@@ -1,13 +1,21 @@
 import React from 'react';
-import Alert from './Alert/Alert';
+import BtnGroup from './BtnGroup/BtnGroup';
+import Carousel from './Carousel/Carousel';
 import './App.css';
 // import logo from './logo.svg';
 
 function App() {
+  const images = ['/images/first.jpeg', '/images/second.jpeg', '/images/third.jpeg'];
+
   return (
-    <div id="container" className="container m-3">
-      <Alert type="warning" text="what is love?" />
-    </div>
+    <>
+      <div className="container m-3">
+        <BtnGroup />
+      </div>
+      <div className="container m-3">
+        <Carousel images={images} />
+      </div>
+    </>
   );
 }
 
