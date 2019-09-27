@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapse 1`] = `
+<div>
+  <p>
+    <a
+      class="btn btn-primary"
+      href="#"
+    >
+      Link with href
+    </a>
+  </p>
+  <div
+    class="collapse"
+  >
+    <div
+      class="card card-body"
+    >
+      hi
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Collapse 2`] = `
+<div>
+  <p>
+    <a
+      class="btn btn-primary"
+      href="#"
+    >
+      Link with href
+    </a>
+  </p>
+  <div
+    class="collapse show"
+  >
+    <div
+      class="card card-body"
+    >
+      hi
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Collapse 3`] = `
+<div>
+  <p>
+    <a
+      class="btn btn-primary"
+      href="#"
+    >
+      Link with href
+    </a>
+  </p>
+  <div
+    class="collapse"
+  >
+    <div
+      class="card card-body"
+    >
+      hi
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Collapse 4`] = `
+<div>
+  <p>
+    <a
+      class="btn btn-primary"
+      href="#"
+    >
+      Link with href
+    </a>
+  </p>
+  <div
+    class="collapse show"
+  >
+    <div
+      class="card card-body"
+    >
+      hi
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Collapse2 1`] = `
+<div>
+  <p>
+    <a
+      class="btn btn-primary"
+      href="#"
+    >
+      Link with href
+    </a>
+  </p>
+  <div
+    class="collapse show"
+  >
+    <div
+      class="card card-body"
+    >
+      i am grut
+    </div>
+  </div>
+</div>
+`;
