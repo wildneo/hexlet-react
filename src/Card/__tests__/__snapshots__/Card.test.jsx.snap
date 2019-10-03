@@ -1,42 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card 1 1`] = `
+exports[`Card 1`] = `
 <div
   className="card"
->
-  <div
-    className="card-body"
-  >
-    <h4
-      className="card-title"
-    >
-      title 1
-    </h4>
-    <p
-      className="card-text"
-    >
-      text 1
-    </p>
-  </div>
-</div>
+/>
 `;
 
 exports[`Card 2 1`] = `
 <div
   className="card"
 >
+  <h4
+    className="card-title"
+  >
+    Title
+  </h4>
+</div>
+`;
+
+exports[`Card 3 1`] = `
+<div
+  className="card"
+>
   <div
     className="card-body"
   >
     <h4
       className="card-title"
     >
-      title 2
+      Title
     </h4>
     <p
       className="card-text"
     >
-      text 2
+      Text
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Card 4 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card-body"
+  >
+    <h4
+      className="card-title"
+    >
+      Title 3
+    </h4>
+    <p
+      className="card-text"
+    >
+      Text 3
     </p>
   </div>
 </div>

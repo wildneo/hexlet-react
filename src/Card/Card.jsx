@@ -1,16 +1,12 @@
 import React from 'react';
 
-export default class Card extends React.Component {
-  render() {
-    const { title, text } = this.props;
+const Card = ({ children }) => (<div className="card">{children}</div>);
+const Body = ({ children }) => (<div className="card-body">{children}</div>);
+const Title = ({ children }) => (<h4 className="card-title">{ children }</h4>);
+const Text = ({ children }) => (<p className="card-text">{ children }</p>);
 
-    return (
-      <div className="card">
-        <div className="card-body">
-          <h4 className="card-title">{title}</h4>
-          <p className="card-text">{text}</p>
-        </div>
-      </div>
-    );
-  }
-}
+Card.Body = Body;
+Card.Title = Title;
+Card.Text = Text;
+
+export default Card;
