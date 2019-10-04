@@ -1,20 +1,17 @@
+/* eslint-disable react/prefer-stateless-function, jsx-a11y/anchor-is-valid */
 import React from 'react';
 
-export default class TodoBox extends React.PureComponent {
+export default class Item extends React.PureComponent {
   render() {
     const { task, onRemove } = this.props;
+    const link = <a href="#" className="todo-task" onClick={onRemove(task.id)}>{task.text}</a>;
 
     return (
-      <div>
-        <div className="row">
-          <div>
-            <form className="todo-remove-item-form" action="" onSubmit={onRemove(task.id)}>
-              <button type="submit" className="btn btn-primary btn-sm">-</button>
-            </form>
-          </div>
-          <div className="col-10">{task.value}</div>
+      <div className="row">
+        <div className="col-1">{task.id}</div>
+        <div className="col">
+          {task.state === 'finished' ? <s>{link}</s> : link}
         </div>
-        <hr />
       </div>
     );
   }
