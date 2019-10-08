@@ -1,0 +1,517 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChangeLog 1`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 2`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 3`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 4`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 5`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 6`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 7`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 8`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      0
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 9`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      0
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 10`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      0
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChangeLog 11`] = `
+<div>
+  <div
+    class="btn-group"
+    role="group"
+  >
+    <button
+      class="btn hexlet-inc"
+      type="button"
+    >
+      +
+    </button>
+    <button
+      class="btn hexlet-dec"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+  <div
+    class="list-group"
+  >
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      0
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      0
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="list-group-item list-group-item-action"
+      type="button"
+    >
+      1
+    </button>
+  </div>
+</div>
+`;

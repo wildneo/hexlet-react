@@ -1,6 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import uniqueId from 'lodash.uniqueid';
+import { uniqueId } from 'lodash';
 
 export default class Definitions extends React.Component {
   render() {

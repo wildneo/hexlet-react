@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Autocomplete 1`] = `
+<div>
+  <form>
+    <div
+      class="form-group"
+    >
+      <input
+        class="form-control"
+        placeholder="Enter Country"
+        type="text"
+        value=""
+      />
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Autocomplete 2`] = `
+<div>
+  <form>
+    <div
+      class="form-group"
+    >
+      <input
+        class="form-control"
+        placeholder="Enter Country"
+        type="text"
+        value="a"
+      />
+    </div>
+  </form>
+  <ul>
+    <li>
+      albania
+    </li>
+    <li>
+      aljir
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Autocomplete 3`] = `
+<div>
+  <form>
+    <div
+      class="form-group"
+    >
+      <input
+        class="form-control"
+        placeholder="Enter Country"
+        type="text"
+        value="alb"
+      />
+    </div>
+  </form>
+  <ul>
+    <li>
+      albania
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Autocomplete 4`] = `
+<div>
+  <form>
+    <div
+      class="form-group"
+    >
+      <input
+        class="form-control"
+        placeholder="Enter Country"
+        type="text"
+        value=""
+      />
+    </div>
+  </form>
+</div>
+`;
