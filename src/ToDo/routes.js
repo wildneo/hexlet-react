@@ -1,4 +1,4 @@
-const host = 'https://web-js-react-component-lifecycle-1242431.evaluator1-1.hexlet.io';
+const host = '';
 
 export default {
   tasksPath: () => [host, 'tasks'].join('/'), // get tasks list

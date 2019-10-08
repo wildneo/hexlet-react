@@ -3,8 +3,8 @@ import React from 'react';
 
 export default class Item extends React.PureComponent {
   render() {
-    const { task, onRemove } = this.props;
-    const link = <a href="#" className="todo-task" onClick={onRemove(task.id)}>{task.text}</a>;
+    const { task, onClick } = this.props;
+    const link = <a href="#" className="todo-task" onClick={onClick(task.id)}>{task.text}</a>;
 
     return (
       <div className="row">

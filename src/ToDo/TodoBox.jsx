@@ -9,23 +9,22 @@ export default class TodoBox extends React.Component {
     super(props);
     this.state = {
       tasks: [],
-      current: '',
+      text: '',
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = ({ target: { value } }) => {
+      this.setState({ text: value });
+    };
 
-    this.handleComplete = (id) => async (event) => {
+    this.handleSubmit = (event) => {
       event.preventDefault();
-      const { tasks } = this.state;
-      const { data } = await axios.get(routes.taskPath(id));
-      if (data.state === 'active') {
-        const response = await axios.get(routes.finishTaskPath(id));
-      }
-      if (data.state === 'finished') {
-        const response = await axios.get(routes.activateTaskPath(id));
-      }
-      this.setState({ tasks: update(tasks, { $push: response.data }) });
+      const { text } = this.state;
+      this.addTask(text);
+    };
+
+    this.handleClick = (id) => (event) => {
+      event.preventDefault();
+      this.toggleTaskState(id);
     };
   }
 
@@ -33,69 +32,80 @@ export default class TodoBox extends React.Component {
     this.getTasks();
   }
 
-  async toggle(id) {
-    const { data } = await axios.get(routes.taskPath(id));
-    switch (data.state) {
-      case 'active':
-        return await axios.get(routes.finishTaskPath(id));
-
-      case 'finished':
-        return await axios.get(routes.activateTaskPath(id));
-
-      default:
-        return;
-    }
-  }
-
   async getTasks() {
-    const response = await axios.get(routes.tasksPath());
-    this.setState({ tasks: response.data });
-    console.log('tasks:', response.data);
+    const { data } = await axios.get(routes.tasksPath());
+    this.setState({ tasks: data });
   }
 
   async addTask(text) {
     const { tasks } = this.state;
-    const response = await axios.post(routes.tasksPath(), { text });
-    this.setState({ current: '', tasks: update(tasks, { $push: response.data }) });
-    console.log('res:', response.data);
+    const { data } = await axios.post(routes.tasksPath(), { text });
+    this.setState({ text: '', tasks: update(tasks, { $push: [data] }) });
   }
 
-  handleChange({ target }) {
-    this.setState({ current: target.value });
+  async toggleTaskState(id) {
+    const { tasks } = this.state;
+    const index = tasks.findIndex((t) => t.id === id);
+    const task = tasks[index];
+    const url = (t) => {
+      switch (t.state) {
+        case 'active':
+          return routes.finishTaskPath(t.id);
+
+        case 'finished':
+          return routes.activateTaskPath(t.id);
+
+        default:
+          throw new Error(`Unexpected state ${t.state}`);
+      }
+    };
+    const { data } = await axios.patch(url(task));
+    this.setState({ tasks: update(tasks, { [index]: { $set: data } }) });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const { current } = this.state;
-    this.addTask(current);
+  renderForm() {
+    const { text } = this.state;
+
+    return (
+      <form className="todo-form form-inline mx-3" onSubmit={this.handleSubmit}>
+        <div className="form-group">
+          <input
+            className="form-control mr-3"
+            placeholder="I am going..."
+            type="text"
+            value={text}
+            onChange={this.handleChange}
+            required
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">add</button>
+      </form>
+    );
+  }
+
+  renderTasks(taskState) {
+    const { tasks } = this.state;
+    const filtered = tasks.filter(({ state }) => state === taskState);
+
+    if (filtered.length === 0) {
+      return null;
+    }
+
+    return (
+      <div className={`todo-${taskState}-tasks`}>
+        {filtered.map((task) => <Item key={task.id} task={task} onClick={this.handleClick} />)}
+      </div>
+    );
   }
 
   render() {
-    const { tasks, current } = this.state;
-
     return (
       <div>
         <div className="mb-3">
-          <form className="todo-form form-inline mx-3" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <input
-                className="form-control mr-3"
-                placeholder="I am going..."
-                type="text"
-                value={current}
-                onChange={this.handleChange}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">add</button>
-          </form>
+          {this.renderForm()}
         </div>
-        <div className="todo-active-tasks">
-          {tasks.filter(({ state }) => state === 'active').map((task) => <Item key={task.id} task={task} onComplete={this.handleComplete} />)}
-        </div>
-        <div className="todo-finished-tasks">
-          {tasks.filter(({ state }) => state === 'finished').map((task) => <Item key={task.id} task={task} onComplete={this.handleComplete} />)}
-        </div>
+        {this.renderTasks('active')}
+        {this.renderTasks('finished')}
       </div>
     );
   }
