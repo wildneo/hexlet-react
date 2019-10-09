@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Store 1`] = `
+<div>
+  <form>
+    <input
+      type="text"
+      value=""
+    />
+    <button
+      type="button"
+    >
+      Reset
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Store 2`] = `
+<div>
+  <form>
+    <input
+      type="text"
+      value="na-na"
+    />
+    <button
+      type="button"
+    >
+      Reset
+    </button>
+  </form>
+  <div>
+    na-na
+  </div>
+</div>
+`;
+
+exports[`Store 3`] = `
+<div>
+  <form>
+    <input
+      type="text"
+      value=""
+    />
+    <button
+      type="button"
+    >
+      Reset
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Store 4`] = `
+<div>
+  <form>
+    <input
+      type="text"
+      value="another task"
+    />
+    <button
+      type="button"
+    >
+      Reset
+    </button>
+  </form>
+  <div>
+    another task
+  </div>
+</div>
+`;
+
+exports[`Store 5`] = `
+<div>
+  <form>
+    <input
+      type="text"
+      value=""
+    />
+    <button
+      type="button"
+    >
+      Reset
+    </button>
+  </form>
+</div>
+`;
