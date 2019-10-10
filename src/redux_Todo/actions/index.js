@@ -5,6 +5,16 @@ export const updateNewTaskText = (text) => ({
   },
 });
 
-// BEGIN (write your solution here)
+export const addTask = (task) => ({
+  type: 'TASK_ADD',
+  payload: {
+    task,
+  },
+});
 
-// END
+export const removeTask = (id) => ({
+  type: 'TASK_REMOVE',
+  payload: {
+    id,
+  },
+});
