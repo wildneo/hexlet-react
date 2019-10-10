@@ -4,7 +4,8 @@ import { createStore } from 'redux';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import reducers from '../reducers';
-import App from '../components/App';
+import NewTaskForm from '../components/NewTaskForm';
+import Tasks from '../components/Tasks';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -13,7 +14,10 @@ test('Store', () => {
 
   const vdom = (
     <Provider store={store}>
-      <App />
+      <div className="col-5">
+        <NewTaskForm />
+        <Tasks />
+      </div>
     </Provider>
   );
   const wrapper = mount(vdom);
