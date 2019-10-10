@@ -18,3 +18,7 @@ export const removeTask = (id) => ({
     id,
   },
 });
+
+export const removeAllTasks = () => ({
+  type: 'TASK_CLEAN',
+});

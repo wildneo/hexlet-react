@@ -38,7 +38,7 @@ class NewTaskForm extends React.Component {
         <div className="form-group mx-sm-3">
           <input type="text" required value={text} onChange={this.handleUpdate} />
         </div>
-        <button type="submit" className="btn btn-primary btn-sm">Add</button>
+        <input type="submit" className="btn btn-primary btn-sm" value="Add" />
       </form>
     );
   }

@@ -19,10 +19,15 @@ const tasks = (state = [], action) => {
       const { task } = action.payload;
       return [task, ...state];
     }
+
     case 'TASK_REMOVE': {
       const { id } = action.payload;
       return state.filter((task) => task.id !== id);
     }
+
+    case 'TASK_CLEAN':
+      return [];
+
     default:
       return state;
   }
