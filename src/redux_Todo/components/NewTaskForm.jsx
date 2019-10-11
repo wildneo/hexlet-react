@@ -20,7 +20,7 @@ class NewTaskForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { addTask, text } = this.props;
-    const task = { id: _.uniqueId(), text };
+    const task = { id: _.uniqueId(), text, state: 'active' };
     addTask({ task });
   }
 

@@ -26,7 +26,7 @@ class Panel extends React.Component {
     const { addTask, cleanTasks } = this.props;
     cleanTasks();
     _.times(5, () => {
-      addTask({ task: { id: _.uniqueId(), text: faker.lorem.sentence() } });
+      addTask({ task: { id: _.uniqueId(), text: faker.lorem.sentence(), state: 'active' } });
     });
   }
 
