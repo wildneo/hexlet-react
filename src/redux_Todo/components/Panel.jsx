@@ -6,7 +6,7 @@ import * as actions from '../actions';
 
 const actionsList = {
   addTask: actions.addTask,
-  removeAllTasks: actions.removeAllTasks,
+  cleanTasks: actions.cleanTasks,
 };
 
 class Panel extends React.Component {
@@ -18,15 +18,15 @@ class Panel extends React.Component {
   }
 
   handleClean() {
-    const { removeAllTasks } = this.props;
-    removeAllTasks();
+    const { cleanTasks } = this.props;
+    cleanTasks();
   }
 
   handleGen() {
-    const { addTask, removeAllTasks } = this.props;
-    removeAllTasks();
+    const { addTask, cleanTasks } = this.props;
+    cleanTasks();
     _.times(5, () => {
-      addTask({ id: _.uniqueId(), text: faker.lorem.sentence() });
+      addTask({ task: { id: _.uniqueId(), text: faker.lorem.sentence() } });
     });
   }
 

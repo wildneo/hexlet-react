@@ -20,15 +20,15 @@ class NewTaskForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { addTask, text } = this.props;
-    const newTask = { id: _.uniqueId(), text };
-    addTask(newTask);
+    const task = { id: _.uniqueId(), text };
+    addTask({ task });
   }
 
   handleUpdate(event) {
     event.preventDefault();
     const { updateNewTaskText } = this.props;
     const { target: { value } } = event;
-    updateNewTaskText(value);
+    updateNewTaskText({ value });
   }
 
   render() {

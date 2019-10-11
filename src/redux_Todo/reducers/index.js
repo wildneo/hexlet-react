@@ -1,37 +1,17 @@
 import { combineReducers } from 'redux';
+import { handleActions } from 'redux-actions';
+import * as actions from '../actions';
 
-const text = (state = '', action) => {
-  switch (action.type) {
-    case 'TEXT_UPDATE':
-      return action.payload.text;
+const text = handleActions({
+  [actions.updateNewTaskText]: (state, { payload: { value } }) => value,
+  [actions.addTask]: () => '',
+}, '');
 
-    case 'TASK_ADD':
-      return '';
-
-    default:
-      return state;
-  }
-};
-
-const tasks = (state = [], action) => {
-  switch (action.type) {
-    case 'TASK_ADD': {
-      const { task } = action.payload;
-      return [task, ...state];
-    }
-
-    case 'TASK_REMOVE': {
-      const { id } = action.payload;
-      return state.filter((task) => task.id !== id);
-    }
-
-    case 'TASK_CLEAN':
-      return [];
-
-    default:
-      return state;
-  }
-};
+const tasks = handleActions({
+  [actions.addTask]: (state, { payload: { task } }) => [task, ...state],
+  [actions.removeTask]: (state, { payload: { id } }) => (state.filter((task) => task.id !== id)),
+  [actions.cleanTasks]: () => [],
+}, []);
 
 export default combineReducers({
   text,

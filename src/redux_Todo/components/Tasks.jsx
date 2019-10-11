@@ -12,7 +12,7 @@ class Tasks extends React.Component {
     this.handleRemove = (id) => (event) => {
       event.preventDefault();
       const { removeTask } = this.props;
-      removeTask(id);
+      removeTask({ id });
     };
   }
 
