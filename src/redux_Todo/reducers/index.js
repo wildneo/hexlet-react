@@ -5,6 +5,7 @@ import * as actions from '../actions';
 
 const text = handleActions({
   [actions.updateNewTaskText]: (state, { payload: { value } }) => value,
+
   [actions.addTask]: () => '',
 }, '');
 
@@ -17,6 +18,7 @@ const tasks = handleActions({
       allIds: [task.id, ...allIds],
     };
   },
+
   [actions.removeTask]: (state, { payload: { id } }) => {
     const { byId, allIds } = state;
 
@@ -25,20 +27,46 @@ const tasks = handleActions({
       allIds: _.without(allIds, id),
     };
   },
-  [actions.toggleState]: (state, { payload: { id } }) => {
+
+  [actions.toggleTaskState]: (state, { payload: { id } }) => {
     const task = state.byId[id];
-    const taskState = task.state === 'finish' ? 'active' : 'finish';
-    const updatedTask = { ...task, state: taskState };
+    const mapping = {
+      finish: 'active',
+      active: 'finish',
+    };
+    const updatedTask = { ...task, state: mapping[task.state] };
 
     return {
       ...state,
       byId: { ...state.byId, [id]: updatedTask },
     };
   },
+
   [actions.cleanTasks]: () => ({ byId: {}, allIds: [] }),
 }, { byId: {}, allIds: [] });
+
+const tasksUIState = handleActions({
+  [actions.addTask]: (state, { payload: { task } }) => (
+    { ...state, [task.id]: { theme: 'light' } }
+  ),
+
+  [actions.removeTask]: (state, { payload: { id } }) => (_.omit(state, id)),
+
+  [actions.cleanTasks]: () => ({}),
+
+  [actions.inverseTaskTheme]: (state, { payload: { id } }) => {
+    const taskTheme = state[id].theme;
+    const mapping = {
+      dark: 'light',
+      light: 'dark',
+    };
+
+    return { ...state, [id]: { theme: mapping[taskTheme] } };
+  },
+}, {});
 
 export default combineReducers({
   text,
   tasks,
+  tasksUIState,
 });
