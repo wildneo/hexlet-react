@@ -22,15 +22,18 @@ const tasks = handleActions({
 
     return {
       byId: _.omit(byId, id),
-      allIds: allIds.filter((taskId) => taskId !== id),
+      allIds: _.without(allIds, id),
     };
   },
   [actions.toggleState]: (state, { payload: { id } }) => {
-    const { byId, allIds } = state;
-    const task = byId[id];
-    task.state = task.state === 'finish' ? 'active' : 'finish';
+    const task = state.byId[id];
+    const taskState = task.state === 'finish' ? 'active' : 'finish';
+    const updatedTask = { ...task, state: taskState };
 
-    return { byId, allIds };
+    return {
+      ...state,
+      byId: { ...state.byId, [id]: updatedTask },
+    };
   },
   [actions.cleanTasks]: () => ({ byId: {}, allIds: [] }),
 }, { byId: {}, allIds: [] });
