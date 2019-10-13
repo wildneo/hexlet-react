@@ -7,11 +7,14 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 /* eslint-disable no-underscore-dangle */
+const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
+const devtoolMiddleware = ext && ext();
+/* eslint-enable */
+
 const store = createStore(
   reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  devtoolMiddleware,
 );
-/* eslint-enable */
 
 ReactDOM.render(
   <div className="container m-3">
