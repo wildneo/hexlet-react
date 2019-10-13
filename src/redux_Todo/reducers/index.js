@@ -14,6 +14,7 @@ const tasks = handleActions({
     const { byId, allIds } = state;
 
     return {
+      ...state,
       byId: { ...byId, [task.id]: task },
       allIds: [task.id, ...allIds],
     };
@@ -23,6 +24,7 @@ const tasks = handleActions({
     const { byId, allIds } = state;
 
     return {
+      ...state,
       byId: _.omit(byId, id),
       allIds: _.without(allIds, id),
     };
@@ -32,7 +34,7 @@ const tasks = handleActions({
     const task = state.byId[id];
     const mapping = {
       finish: 'active',
-      active: 'finish',
+      active: 'finished',
     };
     const updatedTask = { ...task, state: mapping[task.state] };
 
@@ -42,31 +44,35 @@ const tasks = handleActions({
     };
   },
 
-  [actions.cleanTasks]: () => ({ byId: {}, allIds: [] }),
-}, { byId: {}, allIds: [] });
-
-const tasksUIState = handleActions({
-  [actions.addTask]: (state, { payload: { task } }) => (
-    { ...state, [task.id]: { theme: 'light' } }
+  [actions.setTasksFilter]: (state, { payload: { filterName } }) => (
+    { ...state, currentFilterName: filterName }
   ),
 
-  [actions.removeTask]: (state, { payload: { id } }) => (_.omit(state, id)),
+  [actions.cleanTasks]: () => ({ byId: {}, allIds: [], currentFilterName: 'all' }),
+}, { byId: {}, allIds: [], currentFilterName: 'all' });
 
-  [actions.cleanTasks]: () => ({}),
+// const tasksUIState = handleActions({
+//   [actions.addTask]: (state, { payload: { task } }) => (
+//     { ...state, [task.id]: { theme: 'light' } }
+//   ),
 
-  [actions.inverseTaskTheme]: (state, { payload: { id } }) => {
-    const taskTheme = state[id].theme;
-    const mapping = {
-      dark: 'light',
-      light: 'dark',
-    };
+//   [actions.removeTask]: (state, { payload: { id } }) => (_.omit(state, id)),
 
-    return { ...state, [id]: { theme: mapping[taskTheme] } };
-  },
-}, {});
+//   [actions.cleanTasks]: () => ({}),
+
+//   [actions.inverseTaskTheme]: (state, { payload: { id } }) => {
+//     const taskTheme = state[id].theme;
+//     const mapping = {
+//       dark: 'light',
+//       light: 'dark',
+//     };
+
+//     return { ...state, [id]: { theme: mapping[taskTheme] } };
+//   },
+// }, {});
 
 export default combineReducers({
   text,
   tasks,
-  tasksUIState,
+  // tasksUIState,
 });

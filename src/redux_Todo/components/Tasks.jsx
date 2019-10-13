@@ -1,18 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { connect } from 'react-redux';
-import cn from 'classnames';
 import * as actions from '../actions';
+import { filteredTasksSelector } from '../selectors';
 
 const mapStateToProps = (state) => {
-  const { tasks: { byId, allIds }, tasksUIState } = state;
-  const tasks = allIds.map((id) => byId[id]);
-  return { tasks, tasksUIState };
+  const { tasks: { currentFilterName } } = state;
+  const tasks = filteredTasksSelector(state, currentFilterName);
+  return { tasks };
 };
 const actionsList = {
-  inverseTaskTheme: actions.inverseTaskTheme,
-  toggleTaskState: actions.toggleTaskState,
   removeTask: actions.removeTask,
+  toggleTaskState: actions.toggleTaskState,
 };
 
 class Tasks extends React.Component {
@@ -21,12 +20,11 @@ class Tasks extends React.Component {
 
     this.handleToggleTaskState = (id) => (event) => {
       event.preventDefault();
-      const { toggleTaskState, inverseTaskTheme } = this.props;
-      inverseTaskTheme({ id });
+      const { toggleTaskState } = this.props;
       toggleTaskState({ id });
     };
 
-    this.handleRemove = (id) => (event) => {
+    this.handleRemoveTask = (id) => (event) => {
       event.preventDefault();
       const { removeTask } = this.props;
       removeTask({ id });
@@ -34,15 +32,7 @@ class Tasks extends React.Component {
   }
 
   render() {
-    const { tasks, tasksUIState } = this.props;
-    const applyTheme = (theme) => {
-      const regularStyle = 'list-group-item d-flex';
-      const themeClasses = {
-        light: 'bg-light text-dark',
-        dark: 'bg-dark text-light',
-      };
-      return cn(regularStyle, themeClasses[theme]);
-    };
+    const { tasks } = this.props;
 
     if (tasks.length === 0) {
       return null;
@@ -52,13 +42,23 @@ class Tasks extends React.Component {
       <div className="mt-3">
         <ul className="list-group">
           {tasks.map(({ id, text, state }) => (
-            <li className={applyTheme(tasksUIState[id].theme)} key={id}>
+            <li key={id} className="list-group-item d-flex">
               <span className="mr-auto">
-                <a href="#" data-test="task-toggle-state" onClick={this.handleToggleTaskState(id)}>
+                <button
+                  type="button"
+                  data-test="task-toggle-state"
+                  className="btn btn-link"
+                  onClick={this.handleToggleTaskState(id)}
+                >
                   {state === 'active' ? text : <s>{text}</s>}
-                </a>
+                </button>
               </span>
-              <button type="button" className="close" onClick={this.handleRemove(id)}>
+              <button
+                type="button"
+                data-test="task-remove"
+                className="close"
+                onClick={this.handleRemoveTask(id)}
+              >
                 <span>&times;</span>
               </button>
             </li>

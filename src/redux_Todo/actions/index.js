@@ -10,4 +10,6 @@ export const removeTask = createAction('TASK_REMOVE');
 
 export const cleanTasks = createAction('TASK_CLEAN');
 
-export const inverseTaskTheme = createAction('UI_INVERSE_THEME');
+export const setTasksFilter = createAction('TASK_FILTER_SET');
+
+// export const inverseTaskTheme = createAction('UI_INVERSE_THEME');
